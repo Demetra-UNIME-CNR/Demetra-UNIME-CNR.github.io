@@ -1,0 +1,56 @@
+cff-version: 1.2.0
+message: >
+  If you use this dataset, please cite it using the metadata below,
+  as well as the primary research paper listed in preferred-citation.
+
+title: "DEMETRA Hyperspectral & NIR Leaf Spectral Dataset"
+abstract: >
+  Leaf-level full-range (400–2500 nm) reflectance spectra collected with a
+  FieldSpec 4 spectroradiometer, co-registered with wet-chemistry nutrient
+  assays (N, P, K, Ca, Mg, S, chlorophyll / SPAD index) across multiple
+  Sicilian crop species and growth stages. Acquired under the DEMETRA
+  national research programme (PNRR Agriculture 4.0).
+
+version: "1.0.0"
+date-released: "2024-01-01"   # update with actual release date
+
+license: CC-BY-4.0
+
+repository-code: "https://github.com/Demetra-UNIME-CNR/Demetra-UNIME-CNR.github.io"
+url: "https://demetra-unime-cnr.github.io"
+
+authors:
+  - family-names: "[Last name]"      # update with actual authors
+    given-names: "[First name]"
+    affiliation: "University of Messina — Stratus Lab"
+    email: "stratus.lab@unime.it"
+  - name: "CNR-IEIIT"
+    city: "Torino"
+    country: IT
+
+keywords:
+  - hyperspectral
+  - NIR spectroscopy
+  - precision agriculture
+  - plant nutrient prediction
+  - band selection
+  - machine learning
+  - remote sensing
+  - Agriculture 4.0
+  - PNRR
+
+# ── Primary paper (update when published) ─────────────────────────────
+preferred-citation:
+  type: article
+  title: "[Paper title — to be updated upon publication]"
+  authors:
+    - family-names: "[Last name]"
+      given-names: "[First name]"
+      affiliation: "University of Messina — Stratus Lab"
+  journal: "[Journal name]"
+  year: 2024
+  doi: "10.XXXX/XXXXXXX"   # update with final DOI
+  # volume:
+  # issue:
+  # start:
+  # end:
