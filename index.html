@@ -675,7 +675,7 @@ body {
       </p>
       <div class="campaign-footer">
         <span class="campaign-size">xlsx · ~18 MB</span>
-        <button class="btn-download" onclick="openModal('Wheat — Spring 2023','wheat_spring_2023.xlsx','~18 MB')">
+        <button class="btn-download" onclick="openModal('Wheat — Spring 2023','https://zenodo.org/records/TODO_WHEAT','~18 MB')">
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M6.5 1v8M3.5 6.5l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M1.5 11.5h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
           Download
         </button>
@@ -703,7 +703,7 @@ body {
       </p>
       <div class="campaign-footer">
         <span class="campaign-size">xlsx · ~28 MB</span>
-        <button class="btn-download" onclick="openModal('Tomato — Summer 2023','tomato_summer_2023.xlsx','~28 MB')">
+        <button class="btn-download" onclick="openModal('Tomato — Summer 2023','https://zenodo.org/records/TODO_TOMATO','~28 MB')">
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M6.5 1v8M3.5 6.5l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M1.5 11.5h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
           Download
         </button>
@@ -731,7 +731,7 @@ body {
       </p>
       <div class="campaign-footer">
         <span class="campaign-size">xlsx · ~15 MB</span>
-        <button class="btn-download" onclick="openModal('Vineyard — Autumn 2023','vineyard_autumn_2023.xlsx','~15 MB')">
+        <button class="btn-download" onclick="openModal('Vineyard — Autumn 2023','https://zenodo.org/records/TODO_VINEYARD','~15 MB')">
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M6.5 1v8M3.5 6.5l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M1.5 11.5h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
           Download
         </button>
@@ -759,7 +759,7 @@ body {
       </p>
       <div class="campaign-footer">
         <span class="campaign-size">xlsx · ~40 MB</span>
-        <button class="btn-download" onclick="openModal('Multi-crop — Spring 2024','multicrop_spring_2024.xlsx','~40 MB')">
+        <button class="btn-download" onclick="openModal('Multi-crop — Spring 2024','https://zenodo.org/records/TODO_MULTICROP','~40 MB')">
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M6.5 1v8M3.5 6.5l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M1.5 11.5h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
           Download
         </button>
@@ -843,8 +843,8 @@ body {
     <div class="modal-actions">
       <button class="btn-cancel" onclick="closeModal()">Cancel</button>
       <button class="btn-confirm" id="confirmBtn" disabled onclick="confirmDownload()">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1v9M4 7.5l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M1.5 12.5h11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        Accept &amp; Download
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 4l4 3-4 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Accept &amp; go to Zenodo
       </button>
     </div>
   </div>
@@ -874,13 +874,11 @@ body {
 
   function confirmDownload() {
     if (!pendingFile) return;
-    // ── Configure this when you create your first GitHub Release ──────────
-    // 1. Go to your repo → Releases → "Create a new release"
-    // 2. Tag it v1.0, attach the .xlsx files, publish
-    // 3. Replace YOUR_ORG and YOUR_REPO below with your real values
-    const RELEASE_BASE = 'https://github.com/Demetra-UNIME-CNR/Demetra-UNIME-CNR.github.io/releases/download/v1.0/';
-    // ──────────────────────────────────────────────────────────────────────
-    window.location.href = RELEASE_BASE + pendingFile.file;
+    // pendingFile.file holds the full Zenodo URL set in each openModal() call.
+    // When you upload a dataset to Zenodo, replace the TODO_* placeholder
+    // in the matching openModal() call with the real record URL, e.g.:
+    //   'https://zenodo.org/records/TODO_WHEAT'  →  'https://zenodo.org/records/1234567'
+    window.open(pendingFile.file, '_blank', 'noopener');
     closeModal();
   }
 
